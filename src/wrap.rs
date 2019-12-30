@@ -1,3 +1,5 @@
+//! Define `ItrsWrap`, that wraps an iterable python object as a rust Iterator
+
 use pyo3::prelude::*;
 
 #[pyclass]
@@ -60,7 +62,7 @@ impl From<PyResult<ItrsWrap>> for WrapResult {
     fn from(x: PyResult<ItrsWrap>) -> WrapResult {
         match x {
             Ok(wrap) => WrapResult::Ok(wrap),
-            Err(err) => WrapResult::Err(std::iter::once(err))
+            Err(err) => WrapResult::Err(std::iter::once(err)),
         }
     }
 }
