@@ -259,6 +259,22 @@ impl Itrs {
         };
         Iterator::try_fold(&mut self.clone_inner(), initial_value, f)
     }
+
+    // TODO: lots of missing combinators
+
+    // FIXME: this cheats, as this doesn't use Rust's sum method.
+    // I tried using it previously, but it involves implementing the std::iter::Sum trait
+    // for a struct containing a PyResult<PyObject> and a PyObject playing the role of the "zero".
+    // I elected to use the following simple implementation instead for the moment.
+    fn sum(&mut self, py: Python<'_>, first: PyObject) -> PyResult<PyObject> {
+        let mut accumulator = first;
+        for pyobject in &mut *(self.as_it()?) {
+            let pyobject = pyobject?;
+            accumulator =
+                accumulator.call_method1(py, "__add__", PyTuple::new(py, Some(pyobject)))?
+        }
+        Ok(accumulator)
+    }
 }
 
 fn apply_filter(predicate: &PyObject, x: &PyResult<PyObject>) -> Result<bool, ()> {
