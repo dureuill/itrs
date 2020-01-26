@@ -1,8 +1,11 @@
 [package]
 name = "itrs"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Louis Dureuil <louis.dureuil@xinra.net>"]
 edition = "2018"
+description = "Itrs is a python native module that exposes to python an Iterator interface similar to Rust's Iterator trait. Implemented in Rust."
+repository = "https://github.com/dureuill/itrs"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
