@@ -261,6 +261,21 @@ impl Itrs {
     }
 
     // TODO: lots of missing combinators
+    // fn all<F>(&mut self, f: F) -> bool
+    // fn any<F>(&mut self, f: F) -> bool
+    // fn find<P>(&mut self, predicate: P) -> Option<Self::Item>
+    // fn find_map<B, F>(&mut self, f: F) -> Option<B>
+    // fn position<P>(&mut self, predicate: P) -> Option<usize>
+    // fn rposition<P>(&mut self, predicate: P) -> Option<usize>
+    // fn max(self) -> Option<Self::Item>
+    // fn min(self) -> Option<Self::Item>
+    // fn max_by_key<B, F>(self, f: F) -> Option<Self::Item>
+    // fn max_by<F>(self, compare: F) -> Option<Self::Item>
+    // fn min_by_key<B, F>(self, f: F) -> Option<Self::Item>
+    // fn min_by<F>(self, compare: F) -> Option<Self::Item>
+    // fn unzip<A, B, FromA, FromB>(self) -> (FromA, FromB)
+    // fn cycle(self) -> Cycle<Self>
+
 
     // FIXME: this cheats, as this doesn't use Rust's sum method.
     // I tried using it previously, but it involves implementing the std::iter::Sum trait
@@ -275,6 +290,22 @@ impl Itrs {
         }
         Ok(accumulator)
     }
+
+    // fn product<P>(self) -> P
+    // fn cmp<I>(self, other: I) -> Ordering
+    // fn cmp_by<I, F>(self, other: I, cmp: F) -> Ordering
+    // fn partial_cmp<I>(self, other: I) -> Option<Ordering>
+    // fn partial_cmp_by<I, F>(self, other: I, partial_cmp: F) -> Option<Ordering>
+    // fn eq<I>(self, other: I) -> bool
+    // fn eq_by<I, F>(self, other: I, eq: F) -> bool
+    // fn ne<I>(self, other: I) -> bool
+    // fn lt<I>(self, other: I) -> bool
+    // fn le<I>(self, other: I) -> bool
+    // fn gt<I>(self, other: I) -> bool
+    // fn ge<I>(self, other: I) -> bool
+    // fn is_sorted(self) -> bool // NIGHTLY ONLY
+    // fn is_sorted_by<F>(self, compare: F) -> bool // NIGHTLY ONLY
+    // fn is_sorted_by_key<F, K>(self, f: F) -> bool // NIGHTLY ONLY
 }
 
 fn apply_filter(predicate: &PyObject, x: &PyResult<PyObject>) -> Result<bool, ()> {
